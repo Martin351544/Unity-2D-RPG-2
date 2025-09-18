@@ -1,31 +1,29 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class SceneChanger : MonoBehaviour
 
+public class SceneChanger : MonoBehaviour
 {
     public string sceneToLoad;
-    public float fadeTime = .5f;
+    public float fadeTime = 0.5f;
     public Animator fadeAnim;
     public Vector2 newPlayerPosition;
     private Transform player;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        fadeAnim.SetBool("isIdle" , false);
-        if (collision.gameObject.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             player = collision.transform;
-            fadeAnim.Play("FadeAnimation");
-            StartCoroutine(DelayFade());
-            fadeAnim.SetBool("isIdle" , true);
+            StartCoroutine(FadeAndLoad());
         }
     }
 
-    IEnumerator DelayFade()
+    IEnumerator FadeAndLoad()
     {
+        fadeAnim.SetTrigger("FadeOut"); // make sure you have a trigger in Animator
         yield return new WaitForSeconds(fadeTime);
-        player.position = newPlayerPosition;
+
         SceneManager.LoadScene(sceneToLoad);
     }
 }
