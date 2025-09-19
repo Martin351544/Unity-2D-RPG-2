@@ -23,7 +23,7 @@ public class ShopKeeper : MonoBehaviour
     {
         if (PlayerInRange)
         {
-            if (Input.GetButton("Interact"))
+            if (Input.GetButtonDown("Interact"))
             {
                 if (!isShopOpen)
                 {

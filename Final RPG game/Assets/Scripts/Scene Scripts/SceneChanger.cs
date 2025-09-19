@@ -21,7 +21,7 @@ public class SceneChanger : MonoBehaviour
 
     IEnumerator FadeAndLoad()
     {
-        fadeAnim.SetTrigger("FadeOut"); // make sure you have a trigger in Animator
+        fadeAnim.SetTrigger("FadeAnimation"); // make sure you have a trigger in Animator
         yield return new WaitForSeconds(fadeTime);
 
         SceneManager.LoadScene(sceneToLoad);

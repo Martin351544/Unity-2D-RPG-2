@@ -1,8 +1,12 @@
+using System;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 public class Dialogue : MonoBehaviour
 {
+    public bool tutorialNPC;
+
     [SerializeField]
     private GameObject dialougeCanvas;
     [SerializeField]
@@ -27,7 +31,7 @@ public class Dialogue : MonoBehaviour
     
 
     private bool dialogueActivated;
-    private int step;
+    private int step = 0;
  
     void Update()
     {
@@ -47,7 +51,7 @@ public class Dialogue : MonoBehaviour
                 portraitImage.sprite = portrait[0];
                 step += 1;
             }
-        }
+        }   
     }
 
     void OnTriggerEnter2D(Collider2D collision)
