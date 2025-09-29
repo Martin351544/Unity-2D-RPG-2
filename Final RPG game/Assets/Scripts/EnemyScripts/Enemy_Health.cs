@@ -12,6 +12,7 @@ public class Enemy_Health : MonoBehaviour
     public int currentHealth;
     public int MaxHealth;
     
+    
     void Start()
     {
         currentHealth = MaxHealth;
